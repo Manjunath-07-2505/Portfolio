@@ -17,7 +17,7 @@ const newsletter = {
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: (
     <>
-      I occasionally write about design, technology, and share thoughts on the intersection of
+      I occasionally develop a web application, technology, and share thoughts on the intersection of
       creativity and engineering.
     </>
   ),
@@ -54,7 +54,9 @@ const home = {
   headline: "Manjunatha R",
   subline: (
     <>
-     A passionate Software Engineer and MERN Stack Developer crafting fast, scalable, and user-friendly web applications. I specialize in JavaScript, React, Node.js, and Next.js, blending creativity with clean code. With a strong grip on problem-solving, APIs, and databases, I'm always eager to learn and build impactful digital experiences. Let’s create something amazing together.
+     A Full Stack Developer builds complete web applications using Java for backend development and modern frontend technologies like HTML, CSS, JavaScript, and React.
+They design and develop server-side logic, APIs, and user interfaces to ensure smooth end-to-end functionality.
+They manage data storage and retrieval using MySQL, ensuring efficient and secure database operations
     </>
   ),
 };
