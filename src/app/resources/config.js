@@ -1,4 +1,5 @@
-const baseURL = "https://portfolio-six-mu-80.vercel.app/";
+const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
+
 
 const routes = {
   "/": true,
