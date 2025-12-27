@@ -1,61 +1,85 @@
 ---
-title: "Readora: Your Free Digital Library for Unlimited Learning"
-summary: "A Free Platform to Read and Download PDF Books Across Various Genres."
-  
-images:
-  - "/images/projects/project-readora/r1.png"
-  - "/images/projects/project-readora/r3.png"
-  - "/images/projects/project-readora/r2.png"
+title: "🏦 Bank Management System (JDBC)"
+summary: "A Java-based console application that performs core banking operations using JDBC and MySQL with secure database handling."
 
-  
-link: "https://e-house-ten.vercel.app/"
+images:
+  - "/images/projects/r1.png"
+  - "/images/projects/r2.png"
+  - "/images/projects/r3.png"
 ---
 
 ## Overview
 
-Welcome to **Readora: Your Free Digital Library for Unlimited Learning** — a completely free platform where students, avid readers, and knowledge seekers can read and download books in PDF format across multiple genres and subjects. No more buying expensive hard copies or worrying about subscription fees.
+The **Bank Management System** is a Java-based console application developed using **JDBC (Java Database Connectivity)** to perform essential banking operations.  
+It allows users to manage bank accounts efficiently while ensuring secure interaction with a **MySQL database**.
 
-From academic textbooks to self-help books, novels, and technical guides, **Readora** provides a vast collection of free digital books designed for easy access anytime, anywhere.
-
----
-
-## Key Features
-
-- **Free PDF Book Library**: Browse, read, and download books in PDF format without any cost.
-- **No Subscription Required**: Completely free to use with no hidden charges or premium plans.
-- **Wide Range of Categories**: Academic books, fiction, non-fiction, technology, business, and more.
-- **Clean User Interface**: Easy-to-navigate interface with search functionality for quick access to your desired books.
-- **Download Option**: Download books for offline reading in PDF format.
-- **Cloud-Hosted**: Books are stored securely and served via Cloudinary for fast, reliable access.
+This project focuses on implementing real-world banking functionalities such as account creation, deposits, withdrawals, and balance inquiry, while demonstrating strong backend concepts like database connectivity, exception handling, and the **DAO design pattern**.
 
 ---
 
-## How it Works
+## 🚀 Features
 
-1. **Browse the Library**: Explore thousands of available books by category or search by title and author.
-2. **Read Online**: Open any book in your browser instantly without needing to download.
-3. **Download PDF**: Save the book to your device in PDF format for offline reading.
-4. **Completely Free**: No login required, no subscription fees, just free knowledge.
-
----
-
-## Technologies Behind Readora
-
-- **Next.js**: Full-stack framework for fast and scalable web applications.
-- **Prisma & NeonDB**: Serverless relational database managing book records.
-- **Tailwind CSS**: Modern utility-first framework for beautiful, responsive UI design.
-- **Cloudinary**: For hosting book cover images and PDF files efficiently.
-- **React Query & React Hook Form**: Seamless data fetching and form handling.
-- **Shadcn/ui**: Reusable, accessible components to ensure a polished user experience.
+- **Create New Bank Accounts**: Add new customer accounts with unique account details.
+- **Deposit Money**: Safely deposit funds into an existing account.
+- **Withdraw Money**: Withdraw funds with proper balance validation.
+- **Check Account Balance**: View real-time account balance information.
+- **Secure Database Access**: Uses Prepared Statements to prevent SQL injection.
+- **Structured Code Design**: Implements DAO pattern for clean separation of logic.
 
 ---
 
-## Why Use Readora?
+## ⚙️ How It Works
 
-We built **Readora** to break barriers in accessing knowledge. No paywalls, no subscriptions, no restrictions. Just a simple platform to access and download educational, professional, and recreational books freely. Perfect for students, researchers, and lifelong learners who value accessibility and convenience.
+1. The user interacts with the application via the **console interface**.
+2. Input is processed in the main application class.
+3. Database operations are handled through DAO classes.
+4. JDBC establishes a secure connection with MySQL.
+5. Results are fetched and displayed back to the user.
+
 
 ---
 
-## Borrow Your Free Books
+## 🛠️ Technologies Used
 
-Explore, read, and download thousands of books for free at **Readora**, your gateway to knowledge.
+- **Java**
+- **JDBC (Java Database Connectivity)**
+- **MySQL**
+- **Eclipse IDE**
+- **MySQL Connector (JAR)**
+
+---
+
+## 🗄️ Database Details
+
+- **Database**: MySQL  
+- Uses JDBC to establish database connection  
+- Account data is stored securely in relational tables  
+- CRUD operations executed using SQL queries  
+
+---
+
+## ▶️ How to Run the Project
+
+1. Open the project in **Eclipse IDE**
+2. Add **MySQL Connector JAR** to the Build Path
+3. Configure database credentials in `DBConnection.java`
+4. Run `BankApp.java`
+5. Perform banking operations via the console
+
+---
+
+## 🎯 Learning Outcomes
+
+- Understanding JDBC architecture
+- Performing CRUD operations using SQL
+- Implementing DAO design pattern
+- Managing database connections and exceptions
+- Building real-world backend applications in Java
+
+---
+
+## 👤 Author
+
+**Manjunatha R**  
+Computer Science & Engineering  
+Government Engineering College, Karwar

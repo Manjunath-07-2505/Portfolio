@@ -93,7 +93,7 @@ I enjoy solving problems, designing clean user interfaces, and developing scalab
   },
   work: {
     display: false, // set to false to hide this section
-    title: "Work Experience",
+    title: "Project",
     experiences: [
       {
         company: "FLY",
@@ -305,6 +305,21 @@ const gallery = {
     },
     {
       src: "/images/gallery/i8.png",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/s1.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/s2.jpeg",
+      alt: "image",
+      orientation: "horizontal",
+    },
+    {
+      src: "/images/gallery/s3.jpeg",
       alt: "image",
       orientation: "horizontal",
     },
