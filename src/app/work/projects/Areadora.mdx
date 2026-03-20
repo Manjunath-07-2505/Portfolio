@@ -1,85 +1,177 @@
 ---
-title: "🏦 Bank Management System (JDBC)"
-summary: "A Java-based console application that performs core banking operations using JDBC and MySQL with secure database handling."
+title: "🏦 Bank Management System (Spring Boot + React)"
+summary: "A Full-Stack Bank Management System built using Spring Boot, React, and MySQL that performs core banking operations with secure REST APIs and modern UI."
 
 images:
-  - "/images/projects/r1.png"
-  - "/images/projects/r2.png"
   - "/images/projects/r3.png"
+  - "/images/projects/r2.png"
+  - "/images/projects/r1.png"
+  - "/images/projects/r4.png"
+  - "/images/projects/r5.png"
+  - "/images/projects/r6.png"
+  - "/images/projects/r7.png"
+  - "/images/projects/r8.png"
+  - "/images/projects/r9.png"
+  - "/images/projects/r10.png"
 ---
 
-## Overview
+## 🏦 Bank Management System (Spring Boot + React)
 
-The **Bank Management System** is a Java-based console application developed using **JDBC (Java Database Connectivity)** to perform essential banking operations.  
-It allows users to manage bank accounts efficiently while ensuring secure interaction with a **MySQL database**.
+## 📌 Overview
 
-This project focuses on implementing real-world banking functionalities such as account creation, deposits, withdrawals, and balance inquiry, while demonstrating strong backend concepts like database connectivity, exception handling, and the **DAO design pattern**.
+The **Bank Management System** is a Full-Stack web application developed using **Spring Boot (Java Backend)** and **React (Frontend)** with **MySQL Database** integration.
+
+This project allows users to perform essential banking operations through a modern and responsive web interface while ensuring secure backend processing using REST APIs.
+
+It demonstrates real-world full-stack development concepts including:
+
+- RESTful API development  
+- Database integration  
+- Layered architecture (Controller → Service → Repository)  
+- Secure data handling  
+- Frontend-backend integration  
 
 ---
 
 ## 🚀 Features
 
-- **Create New Bank Accounts**: Add new customer accounts with unique account details.
-- **Deposit Money**: Safely deposit funds into an existing account.
-- **Withdraw Money**: Withdraw funds with proper balance validation.
-- **Check Account Balance**: View real-time account balance information.
-- **Secure Database Access**: Uses Prepared Statements to prevent SQL injection.
-- **Structured Code Design**: Implements DAO pattern for clean separation of logic.
+- ✅ Create New Bank Accounts  
+- ✅ Deposit Money  
+- ✅ Withdraw Money  
+- ✅ Transfer Money Between Accounts  
+- ✅ Check Account Balance  
+- ✅ View Transaction History  
+- ✅ Secure REST APIs using Spring Boot  
+- ✅ Responsive UI using React  
 
 ---
 
-## ⚙️ How It Works
+## 🏗️ System Architecture
 
-1. The user interacts with the application via the **console interface**.
-2. Input is processed in the main application class.
-3. Database operations are handled through DAO classes.
-4. JDBC establishes a secure connection with MySQL.
-5. Results are fetched and displayed back to the user.
+### 🔹 Backend (Spring Boot)
 
+- Built using **Spring Boot**
+- REST APIs developed using `@RestController`
+- Uses **Spring Data JPA**
+- Follows layered architecture:
+  - Controller Layer  
+  - Service Layer  
+  - Repository Layer  
+- Uses **MySQL Database**
+- Global Exception Handling implemented
+- Transaction management using `@Transactional`
+- Prevents SQL Injection via JPA & Prepared Statements  
+
+---
+
+### 🔹 Frontend (React)
+
+- Built using **React JS**
+- Uses Axios for API communication
+- Modern and responsive dashboard UI
+- Component-based architecture
+- Handles real-time user input and server responses
+- Separate components for:
+  - Create Account  
+  - Deposit  
+  - Withdraw  
+  - Transfer  
+  - View Transactions  
 
 ---
 
 ## 🛠️ Technologies Used
 
-- **Java**
-- **JDBC (Java Database Connectivity)**
-- **MySQL**
-- **Eclipse IDE**
-- **MySQL Connector (JAR)**
+### Backend
+- Java  
+- Spring Boot  
+- Spring Data JPA  
+- REST API  
+- MySQL  
+- Maven  
+
+### Frontend
+- React JS  
+- Axios  
+- HTML5  
+- CSS3 / Tailwind CSS  
 
 ---
 
 ## 🗄️ Database Details
 
-- **Database**: MySQL  
-- Uses JDBC to establish database connection  
-- Account data is stored securely in relational tables  
-- CRUD operations executed using SQL queries  
+- **Database:** MySQL  
+- Stores:
+  - Account Details  
+  - Transaction Records  
+- Relational schema with primary & foreign keys  
+- CRUD operations handled via JPA Repository  
+
+---
+
+## 🔄 How It Works
+
+1. User interacts with the React frontend.
+2. React sends HTTP requests using Axios.
+3. Spring Boot receives the request through REST Controllers.
+4. Service layer processes business logic.
+5. Repository layer communicates with MySQL database.
+6. Response is returned to frontend and displayed dynamically.
 
 ---
 
 ## ▶️ How to Run the Project
 
-1. Open the project in **Eclipse IDE**
-2. Add **MySQL Connector JAR** to the Build Path
-3. Configure database credentials in `DBConnection.java`
-4. Run `BankApp.java`
-5. Perform banking operations via the console
+### Backend (Spring Boot)
+
+1. Open the backend project in IntelliJ / Eclipse.
+2. Configure MySQL credentials in `application.properties`.
+3. Run the main Spring Boot application.
+4. Backend runs on: http://localhost:8080
+
+
+---
+
+### Frontend (React)
+
+1. Navigate to frontend folder.
+2. Install dependencies:
+npm install
+
+3. Run the project:
+  npm run dev
+
+
+4. Frontend runs on: http://localhost:5173
+
+
+---
+
+## 🔐 Security & Validation
+
+- Backend input validation  
+- Global exception handling  
+- Transaction safety checks (Insufficient Balance validation)  
+- SQL Injection prevention  
+- Clean layered architecture  
 
 ---
 
 ## 🎯 Learning Outcomes
 
-- Understanding JDBC architecture
-- Performing CRUD operations using SQL
-- Implementing DAO design pattern
-- Managing database connections and exceptions
-- Building real-world backend applications in Java
+- Building Full-Stack Applications  
+- Developing REST APIs using Spring Boot  
+- Integrating React with Backend  
+- Working with MySQL relational databases  
+- Implementing layered architecture  
+- Handling secure financial transactions  
 
 ---
 
-## 👤 Author
+## 👨‍💻 Author
 
 **Manjunatha R**  
 Computer Science & Engineering  
-Government Engineering College, Karwar
+Government Engineering College  
+
+---
