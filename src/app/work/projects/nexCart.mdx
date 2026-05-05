@@ -1,0 +1,214 @@
+---
+title: "🛒 NexCart – Full Stack E-Commerce Application"
+summary: "A modern Full-Stack E-Commerce web application developed using React, Spring Boot, and MySQL, featuring JWT authentication and secure payment simulation."
+---
+
+## 📌 Overview
+
+NexCart is a modern Full-Stack E-Commerce web application developed using **React (Frontend)** and **Spring Boot (Backend)** with database integration.
+It enables users to browse products, manage carts, and securely place orders while ensuring scalable backend processing using REST APIs.
+
+This project demonstrates real-world full-stack development concepts including:
+
+* RESTful API development
+* Secure authentication using JWT
+* Database integration with JPA/Hibernate
+* Layered backend architecture
+* Frontend-backend integration
+
+---
+
+## 🚀 Features
+
+* ✅ User Registration & Login (JWT Authentication)
+* ✅ Browse Products with Search & Filtering
+* ✅ Add to Cart / Remove from Cart
+* ✅ Update Product Quantity
+* ✅ Order Placement & Checkout
+* ✅ Payment Processing (Simulated / Integrated)
+* ✅ View Order History
+* ✅ Secure Backend APIs with Spring Security
+
+---
+
+## 🏗️ System Architecture
+
+### 🔹 Backend (Spring Boot)
+
+* Built using **Spring Boot 3**
+* REST APIs using `@RestController`
+* Uses **Spring Security with JWT Authentication**
+* Follows layered architecture:
+
+  * Controller Layer
+  * Service Layer
+  * Repository Layer
+* Uses **JPA / Hibernate**
+* Database: MySQL / PostgreSQL
+* Global Exception Handling implemented
+* Secure API endpoints with token validation
+
+---
+
+### 🔹 Frontend (React)
+
+* Built using **React 19 + Vite**
+* Uses **React Router DOM** for navigation
+* Uses **Axios** for API communication
+* Component-based architecture
+* Responsive UI design
+* Dynamic state management for cart & orders
+
+---
+
+## 🛠️ Technologies Used
+
+### Backend
+
+* Java
+* Spring Boot
+* Spring Security (JWT)
+* Spring Data JPA
+* REST APIs
+* Maven
+
+### Frontend
+
+* React JS
+* Vite
+* Axios
+* HTML5
+* CSS3
+
+---
+
+## 🗄️ Database Details
+
+* Database: MySQL / PostgreSQL
+* Stores:
+
+  * User Data
+  * Product Information
+  * Cart Details
+  * Orders
+* Relational schema with proper entity relationships
+* CRUD operations handled via JPA Repository
+
+---
+
+## 🔄 Application Flow
+
+1. **User Entry**
+   User lands on Login/Register page
+
+2. **Authentication**
+   User logs in → JWT token generated → Access granted
+
+3. **Product Browsing**
+   Dashboard fetches products → User explores items
+
+4. **Cart Management**
+   User adds/removes products → Cart updates dynamically
+
+5. **Checkout Process**
+   User proceeds to checkout → Order created
+
+6. **Payment**
+   Payment processed → Order confirmed
+
+7. **Order Tracking**
+   User views order history and profile
+
+---
+
+## ▶️ How to Run the Project
+
+### 🔹 Prerequisites
+
+* Node.js (v18+)
+* JDK 17+
+* Maven
+
+---
+
+### 🔹 Installation
+
+Clone the repository and install dependencies:
+
+```bash
+npm install
+```
+
+---
+
+### 🔹 Run Application
+
+#### Frontend
+
+```bash
+npm run dev
+```
+
+Runs on: http://localhost:5173
+
+#### Backend
+
+```bash
+npm run dev:backend
+```
+
+Runs on: http://localhost:8080
+
+---
+
+## 📂 Project Structure
+
+### Backend
+
+```
+/backend/src/main/java/com/example/demo
+├── controller/
+├── entity/
+├── repository/
+├── service/
+├── security/
+```
+
+### Frontend
+
+```
+/frontend/src
+├── component/
+├── assets/
+├── App.jsx
+├── Routes.jsx
+```
+
+---
+
+## 🔐 Security & Validation
+
+* JWT-based Authentication
+* Secure API endpoints
+* Input validation
+* Global exception handling
+* Protection against unauthorized access
+
+---
+
+## 🎯 Learning Outcomes
+
+* Building scalable Full-Stack Applications
+* Implementing secure authentication (JWT)
+* Designing RESTful APIs
+* Integrating React with Spring Boot
+* Managing database relationships using JPA
+* Handling real-world e-commerce workflows
+
+---
+
+## 👨💻 Author
+
+**Manjunatha R**  
+Computer Science & Engineering  
+Government Engineering College

@@ -3,9 +3,10 @@ import "@/once-ui/tokens/index.scss";
 
 import classNames from "classnames";
 
-import { Footer, Header, RouteGuard } from "@/components";
+import { Footer, Header, Navbar, RouteGuard } from "@/components";
 import { baseURL, effects, style } from "@/app/resources";
 
+// Rebuild trigger
 import { Inter } from "next/font/google";
 import { Source_Code_Pro } from "next/font/google";
 
@@ -140,7 +141,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             }}
           />
           <Flex fillWidth minHeight="16"></Flex>
-          <Header />
+          <Navbar />
           <Flex
             position="relative"
             zIndex={0}

@@ -23,6 +23,9 @@ import {
   HiArrowRight,
   HiOutlineEye,
   HiOutlineEyeSlash,
+  HiPhone,
+  HiMapPin,
+  HiPaperAirplane,
 } from "react-icons/hi2";
 
 import {
@@ -67,4 +70,8 @@ export const iconLibrary: Record<string, IconType> = {
   x: FaXTwitter,
   clipboard: HiClipboard,
   arrowUpRightFromSquare: HiArrowTopRightOnSquare,
+  phone: HiPhone,
+  location: HiMapPin,
+  send: HiPaperAirplane,
 };
+

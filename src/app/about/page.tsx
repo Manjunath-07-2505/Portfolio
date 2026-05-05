@@ -75,6 +75,11 @@ export default function About() {
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
     },
+    {
+      title: about.certifications.title,
+      display: about.certifications.display,
+      items: about.certifications.list.map((cert) => cert.name),
+    },
   ];
   return (
     <Column maxWidth="m">
@@ -216,7 +221,13 @@ export default function About() {
 
           {about.work.display && (
             <>
-              <Heading as="h2" id={about.work.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                as="h2"
+                id={about.work.title}
+                variant="display-strong-s"
+                marginBottom="m"
+                style={{ scrollMarginTop: '100px' }}
+              >
                 {about.work.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -278,7 +289,13 @@ export default function About() {
 
           {about.studies.display && (
             <>
-              <Heading as="h2" id={about.studies.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                as="h2"
+                id={about.studies.title}
+                variant="display-strong-s"
+                marginBottom="m"
+                style={{ scrollMarginTop: '100px' }}
+              >
                 {about.studies.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -297,7 +314,13 @@ export default function About() {
           )}
           {about.internships.display && (
             <>
-              <Heading as="h2" id={about.internships.title} variant="display-strong-s" marginBottom="m">
+              <Heading
+                as="h2"
+                id={about.internships.title}
+                variant="display-strong-s"
+                marginBottom="m"
+                style={{ scrollMarginTop: '100px' }}
+              >
                 {about.internships.title}
               </Heading>
               <Column fillWidth gap="l" marginBottom="40">
@@ -322,42 +345,98 @@ export default function About() {
                 id={about.technical.title}
                 variant="display-strong-s"
                 marginBottom="40"
+                style={{ scrollMarginTop: '100px' }}
               >
                 {about.technical.title}
               </Heading>
-              <Column fillWidth gap="l">
-                {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
-                    <Text variant="heading-strong-l">{skill.title}</Text>
-                    <Text variant="body-default-m" onBackground="neutral-weak">
-                      {skill.description}
-                    </Text>
-                    {skill.images && skill.images.length > 0 && (
-                      <Flex fillWidth paddingTop="m" gap="12" wrap>
-                        {skill.images.map((image, index) => (
+              <Flex fillWidth gap="l" wrap>
+                {about.technical.skills.map((category: any, index: number) => (
+                  <Flex
+                    key={`${category.title}-${index}`}
+                    fillWidth
+                    minWidth="100%"
+                    tabletMinWidth="45%"
+                    direction="column"
+                    padding="l"
+                    radius="l"
+                    border="neutral-alpha-weak"
+                    background="surface"
+                    gap="m"
+                  >
+                    <Flex vertical="center" gap="12">
+                      <Flex
+                        padding="8"
+                        radius="full"
+                        background="brand-alpha-weak"
+                        horizontal="center"
+                        vertical="center"
+                        style={{ backgroundColor: 'rgba(14, 165, 233, 0.1)' }}
+                      >
+                        <Icon name={category.icon} size="s" style={{ color: '#0EA5E9' }} />
+                      </Flex>
+                      <Text variant="heading-strong-m">{category.title}</Text>
+                    </Flex>
+                    <Column gap="16">
+                      {category.list.map((skill: any, skillIndex: number) => (
+                        <Column key={skillIndex} gap="8">
+                          <Flex horizontal="space-between">
+                            <Text variant="body-default-s" onBackground="neutral-weak">
+                              {skill.name}
+                            </Text>
+                            <Text variant="body-default-s" onBackground="neutral-weak">
+                              {skill.percent}%
+                            </Text>
+                          </Flex>
                           <Flex
-                            key={index}
-                            border="neutral-medium"
-                            radius="m"
-                            //@ts-ignore
-                            minWidth={image.width}
-                            //@ts-ignore
-                            height={image.height}
+                            fillWidth
+                            radius="full"
+                            background="neutral-alpha-medium"
+                            position="relative"
+                            style={{ overflow: 'hidden', height: '6px' }}
                           >
-                            <SmartImage
-                              enlarge
-                              radius="m"
-                              //@ts-ignore
-                              sizes={image.width.toString()}
-                              //@ts-ignore
-                              alt={image.alt}
-                              //@ts-ignore
-                              src={image.src}
+                            <Flex
+                              position="absolute"
+                              left="0"
+                              top="0"
+                              radius="full"
+                              style={{
+                                height: '100%',
+                                width: `${skill.percent}%`,
+                                backgroundColor: '#0EA5E9', // Light blue color
+                                transition: 'width 1s ease-in-out',
+                              }}
                             />
                           </Flex>
-                        ))}
-                      </Flex>
-                    )}
+                        </Column>
+                      ))}
+                    </Column>
+                  </Flex>
+                ))}
+              </Flex>
+            </>
+          )}
+
+
+          {about.certifications.display && (
+            <>
+              <Heading
+                as="h2"
+                id={about.certifications.title}
+                variant="display-strong-s"
+                marginBottom="m"
+                style={{ scrollMarginTop: '100px' }}
+              >
+                {about.certifications.title}
+              </Heading>
+              <Column fillWidth gap="l" marginBottom="40">
+                {about.certifications.list.map((cert, index) => (
+                  <Column key={`${cert.name}-${index}`} fillWidth gap="4">
+                    <Text id={cert.name} variant="heading-strong-l">
+                      {cert.name}
+                    </Text>
+                    <Text variant="heading-default-xs" onBackground="neutral-weak">
+                      {cert.description}
+                    </Text>
                   </Column>
                 ))}
               </Column>

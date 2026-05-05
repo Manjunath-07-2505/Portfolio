@@ -9,7 +9,7 @@ const person = {
   role: "Fullstack Developer",
   avatar: "/images/Manja.jpeg",
   location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Kannada" ,"Hindi","Telugu"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English", "Kannada", "Hindi", "Telugu"], // optional: Leave the array empty if you don't want to display languages
 };
 
 const newsletter = {
@@ -24,7 +24,6 @@ const newsletter = {
 };
 
 const social = [
-
   {
     name: "GitHub",
     icon: "github",
@@ -36,16 +35,12 @@ const social = [
     link: "https://www.linkedin.com/in/manjunatha-r-1943612a2/",
   },
   {
-    name: "X",
-    icon: "x",
-    link: "",
-  },
-  {
     name: "Email",
     icon: "email",
     link: "mailto:manja.r2505@gmail.com",
   },
 ];
+
 
 const home = {
   label: "Home",
@@ -54,9 +49,9 @@ const home = {
   headline: "Manjunatha R",
   subline: (
     <>
-     A Full Stack Developer builds complete web applications using Java for backend development and modern frontend technologies like HTML, CSS, JavaScript, and React.
-They design and develop server-side logic, APIs, and user interfaces to ensure smooth end-to-end functionality.
-They manage data storage and retrieval using MySQL, ensuring efficient and secure database operations
+      A Full Stack Developer builds complete web applications using Java for backend development and modern frontend technologies like HTML, CSS, JavaScript, and React.
+      They design and develop server-side logic, APIs, and user interfaces to ensure smooth end-to-end functionality.
+      They manage data storage and retrieval using MySQL, ensuring efficient and secure database operations
     </>
   ),
 };
@@ -74,7 +69,7 @@ const about = {
   },
   resume: {
     display: true,
-    link: "/Manjunatha R...pdf",
+    link: "/Manjunatharesume_R.pdf",
     text: "Download Resume",
   },
   intro: {
@@ -82,12 +77,7 @@ const about = {
     title: "Introduction",
     description: (
       <>
-      <h2>Hi, I'm Manjunatha R — a passionate Full Stack Developer!</h2>
-
-Hi, I'm — A Java Full Stack Developer builds complete web applications by working on both front-end and back-end using Java-based technologies.They create responsive user interfaces using HTML, CSS, JavaScript
- and frameworks like React and develop server-side logic using Java,Spring Boot, and Hibernate.They handle authentication, business logic, APIs, and database management using MySQL and MongoDB.
-
-I enjoy solving problems, designing clean user interfaces, and developing scalable backend systems.
+        Dedicated and results-driven Full Stack Developer with hands-on experience in Java, Spring Boot, REST APIs, MySQL and frontend technologies. Experienced in building secure full-stack applications using JWT authentication, Spring Boot and React.js. Strong knowledge of OOPs, JDBC, Hibernate, and Git with internship experience in full stack and AI/ML development.
       </>
     ),
   },
@@ -137,116 +127,119 @@ I enjoy solving problems, designing clean user interfaces, and developing scalab
       },
     ],
   },
+
   studies: {
-    display: true, // set to false to hide this section
-    title: "Studies",
+    display: true,
+    title: "Education",
     institutions: [
       {
-        name: "Kampalaranga PU College - Chitradurga.",
-        description: <>Completed Higher Secondary Education (12th Standard).</>,
+        name: "Government Engineering College - Karwar",
+        description: <>B.E in Computer Science | CGPA: 7.8 | 2025</>,
       },
       {
-        name: "Government Engineering College - Karwar.",
-        description: <>I have recently completed my Bachelor's degree in Computer Science and Engineering.</>,
+        name: "Kampalaranga PU College - Chitradurga",
+        description: <>XII (Karnataka State Board) | 81.33% | 2021</>,
+      },
+      {
+        name: "Government High School Fort - Chitradurga",
+        description: <>X (Karnataka State Board) | 82.42% | 2019</>,
       },
     ],
   },
   internships: {
-    display: true, // set to false to hide this section
-    title: "Internships",
+    display: true,
+    title: "Experience",
     companies: [
       {
-        name: "Full Stack Developer",
-        description: <>A Full Stack Developer Intern supports the development of end-to-end web applications using Java, Spring Boot, HTML, CSS, JavaScript, and databases such as MySQL. They assist in building REST APIs, implementing business logic, and creating responsive front-end components and also completed my internshps AI/ML inInventeron Technology and Data Science inCompsoft Technology.</>,
+        name: "Full Stack Developer | KodNest",
+        description: <>June 2025 – Apr 2026. Worked on developing and integrating full-stack applications using frontend, backend, and database technologies. Gained hands-on experience in building scalable features, API development, and end-to-end application workflows.</>,
+      },
+      {
+        name: "Data Science Intern | Compsoft, Bengaluru",
+        description: <>Mar 2024 – Jun 2025. Trained on Python, SQL, Power BI, and machine learning with real-time project applications.</>,
+      },
+      {
+        name: "AI/ML Intern | AiRobosoft, Bengaluru",
+        description: <>Oct 2023 – Nov 2023. Enhanced Python-based computer vision and ML models on 5,000+ images, improving object detection accuracy by 35% across real-time applications.</>,
       },
     ],
   },
   technical: {
-    display: true, // set to false to hide this section
+    display: true,
     title: "Technical skills",
     skills: [
       {
-        title: "Programming Languages",
-        description: <>Java, JavaScript</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-02.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
-          // {
-          //   src: "/images/projects/project-01/cover-03.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
+        title: "Frontend Development",
+        icon: "code",
+        list: [
+          { name: "React.js", percent: 90 },
+          { name: "JavaScript (ES6+)", percent: 88 },
+          { name: "HTML5", percent: 95 },
+          { name: "CSS3 (Flexbox, Grid)", percent: 92 },
         ],
       },
       {
-        title: "Web Development",
-        description: <>HTML,CSS,JavaScript,React</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-02.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
-          // {
-          //   src: "/images/projects/project-01/cover-03.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
+        title: "Backend Development",
+        icon: "database",
+        list: [
+          { name: "Java", percent: 80 },
+          { name: "Spring Boot", percent: 85 },
+          { name: "REST APIs", percent: 90 },
+          { name: "Hibernate", percent: 80 },
         ],
       },
       {
-        title: "Java Framework",
-        description: <>JDBC,Servlet,Hibernet,spring and Springboot</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-02.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
-          // {
-          //   src: "/images/projects/project-01/cover-03.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
+        title: "Database Management",
+        icon: "layers",
+        list: [
+          { name: "MySQL", percent: 80 },
+          { name: "SQL Queries", percent: 78 },
+          { name: "MongoDB (Basic)", percent: 70 },
+          { name: "Database Design", percent: 65 },
+        ],
+      },
+      {
+        title: "Full Stack Integration",
+        icon: "share",
+        list: [
+          { name: "JWT Authentication", percent: 85 },
+          { name: "MVC Architecture", percent: 80 },
+          { name: "Frontend + Backend Integration", percent: 85 },
+          { name: "API Documentation", percent: 75 },
         ],
       },
       {
         title: "Tools & Platforms",
-        description: <>GitHub,MongoDB Atlas,VS Code,Leetcode,HackerRank</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-04.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
+        icon: "terminal",
+        list: [
+          { name: "Git & GitHub", percent: 85 },
+          { name: "VS Code", percent: 90 },
+          { name: "Postman", percent: 80 },
+          { name: "Linux Basics", percent: 60 },
         ],
       },
+    ],
+  },
+
+  certifications: {
+    display: true,
+    title: "Certifications",
+    list: [
       {
-        title: "Databases",
-        description: <>MySQL,MongoDB</>,
-        // optional: leave the array empty if you don't want to display images
-        images: [
-          // {
-          //   src: "/images/projects/project-01/cover-04.jpg",
-          //   alt: "Project image",
-          //   width: 16,
-          //   height: 9,
-          // },
-        ],
+        name: "Full Stack Developer",
+        description: <>KodNest, Bengaluru | Jan 2025</>,
+      },
+      {
+        name: "Data Science Intern",
+        description: <>Compsoft, Bengaluru | July 2025</>,
+      },
+      {
+        name: "Java Spring Boot",
+        description: <>Infosys, Bengaluru | Apr 2023</>,
+      },
+      {
+        name: "Artificial Intelligence and Machine Learning",
+        description: <>AiRobosoft, Bengaluru | Nov 2023</>,
       },
     ],
   },
@@ -326,4 +319,16 @@ const gallery = {
   ],
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery };
+const contact = {
+  label: "Contact",
+  title: "Get In Touch",
+  description: "Ready to collaborate? Let's build something amazing together.",
+  info: {
+    email: "manja.r2505@gmail.com",
+    phone: "+91 9036344899",
+    linkedin: "linkedin.com/in/manjunatha-r-1943612a2/",
+    location: "Bangalore, India",
+  },
+};
+
+export { person, social, newsletter, home, about, blog, work, gallery, contact };
