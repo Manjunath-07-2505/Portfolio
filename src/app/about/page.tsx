@@ -188,25 +188,25 @@ export default function About() {
                 {social.map(
                   (item) =>
                     item.link && (
-                        <>
-                            <Button
-                                className="s-flex-hide"
-                                key={item.name}
-                                href={item.link}
-                                prefixIcon={item.icon}
-                                label={item.name}
-                                size="s"
-                                variant="secondary"
-                            />
-                            <IconButton
-                                className="s-flex-show"
-                                size="l"
-                                key={`${item.name}-icon`}
-                                href={item.link}
-                                icon={item.icon}
-                                variant="secondary"
-                            />
-                        </>
+                      <>
+                        <Button
+                          className="s-flex-hide"
+                          key={item.name}
+                          href={item.link}
+                          prefixIcon={item.icon}
+                          label={item.name}
+                          size="s"
+                          variant="secondary"
+                        />
+                        <IconButton
+                          className="s-flex-show"
+                          size="l"
+                          key={`${item.name}-icon`}
+                          href={item.link}
+                          icon={item.icon}
+                          variant="secondary"
+                        />
+                      </>
                     ),
                 )}
               </Flex>
@@ -354,9 +354,8 @@ export default function About() {
                   <Flex
                     key={`${category.title}-${index}`}
                     fillWidth
-                    minWidth="100%"
-                    tabletMinWidth="45%"
                     direction="column"
+                    style={{ flex: '1 1 45%' }}
                     padding="l"
                     radius="l"
                     border="neutral-alpha-weak"
@@ -444,12 +443,12 @@ export default function About() {
           )}
         </Column>
       </Flex>
-          <div className="flex items-center justify-center h-[20rem] w-full">
-            <TextRevealCard
-  text=""
-  revealText=""
-/>
-          </div>
+      <div className="flex items-center justify-center h-[20rem] w-full">
+        <TextRevealCard
+          text=""
+          revealText=""
+        />
+      </div>
     </Column>
   );
 }

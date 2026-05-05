@@ -96,12 +96,13 @@ export const Navbar = () => {
                         Resume
                     </Button>
                     
-                    <IconButton
-                        show="s"
-                        icon={isMenuOpen ? "close" : "menu"}
-                        variant="ghost"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    />
+                    <Flex show="s">
+                        <IconButton
+                            icon={isMenuOpen ? "close" : "menu"}
+                            variant="ghost"
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        />
+                    </Flex>
                 </Flex>
             </Flex>
 

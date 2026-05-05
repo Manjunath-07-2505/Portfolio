@@ -112,66 +112,71 @@ export default function Contact() {
                 </Flex>
 
                 {/* Right Column: Contact Form */}
-                <Flex
-                    flex={1}
-                    direction="column"
-                    padding="xl"
-                    radius="l"
-                    background="surface"
-                    border="neutral-alpha-weak"
-                    gap="24"
-                    as="form"
-                    action="https://formsubmit.co/manja.r2505@gmail.com"
-                    method="POST"
-                >
-                    <Text variant="heading-strong-m">Send a Message</Text>
-                    
-                    {/* FormSubmit Configuration */}
-                    <input type="hidden" name="_subject" value="New Message from Portfolio" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_next" value="https://manjunath-portfolio.vercel.app/contact" />
-
-                    <Input
-                        id="name"
-                        name="name"
-                        label="Your Name"
-                        labelAsPlaceholder
-                        required
-                    />
-
-                    <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        label="Your Email"
-                        labelAsPlaceholder
-                        required
-                    />
-
-                    <Textarea
-                        id="message"
-                        name="message"
-                        label="Your Message"
-                        labelAsPlaceholder
-                        required
-                    />
-
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        size="l"
-                        fillWidth
-                        style={{
-                            backgroundColor: "#E11D48",
-                            color: "white",
-                        }}
+                <Flex flex={1}>
+                    <form
+                        action="https://formsubmit.co/manja.r2505@gmail.com"
+                        method="POST"
+                        style={{ width: '100%' }}
                     >
-                        <Flex gap="8" vertical="center">
-                            <Icon name="send" size="s" />
-                            <Text>Send Message</Text>
+                        <Flex
+                            direction="column"
+                            padding="xl"
+                            radius="l"
+                            background="surface"
+                            border="neutral-alpha-weak"
+                            gap="24"
+                            fillWidth
+                        >
+                            <Text variant="heading-strong-m">Send a Message</Text>
+                            
+                            {/* FormSubmit Configuration */}
+                            <input type="hidden" name="_subject" value="New Message from Portfolio" />
+                            <input type="hidden" name="_template" value="table" />
+                            <input type="hidden" name="_captcha" value="false" />
+                            <input type="hidden" name="_next" value="https://manjunath-portfolio.vercel.app/contact" />
+
+                            <Input
+                                id="name"
+                                name="name"
+                                label="Your Name"
+                                labelAsPlaceholder
+                                required
+                            />
+
+                            <Input
+                                id="email"
+                                name="email"
+                                type="email"
+                                label="Your Email"
+                                labelAsPlaceholder
+                                required
+                            />
+
+                            <Textarea
+                                id="message"
+                                name="message"
+                                label="Your Message"
+                                labelAsPlaceholder
+                                required
+                            />
+
+                            <Button
+                                type="submit"
+                                variant="primary"
+                                size="l"
+                                fillWidth
+                                style={{
+                                    backgroundColor: "#E11D48",
+                                    color: "white",
+                                }}
+                            >
+                                <Flex gap="8" vertical="center">
+                                    <Icon name="send" size="s" />
+                                    <Text>Send Message</Text>
+                                </Flex>
+                            </Button>
                         </Flex>
-                    </Button>
+                    </form>
                 </Flex>
             </Flex>
         </Column>
