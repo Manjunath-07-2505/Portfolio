@@ -355,7 +355,7 @@ export default function About() {
                     key={`${category.title}-${index}`}
                     fillWidth
                     direction="column"
-                    style={{ flex: '1 1 45%' }}
+                    style={{ flex: '1 1 300px', minWidth: '0' }}
                     padding="l"
                     radius="l"
                     border="neutral-alpha-weak"

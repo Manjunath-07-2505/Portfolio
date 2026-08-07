@@ -1,0 +1,30 @@
+/* Global styles for the portfolio */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll on mobile */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Images responsive by default */
+img, video {
+  max-width: 100%;
+}

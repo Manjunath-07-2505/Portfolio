@@ -1,98 +1,72 @@
 "use client";
-import React from "react";
-import {
-  Flex,
-  Text,
-  Button,
-  Avatar,
-  RevealFx,
-  Column
-} from "@/once-ui/components";
-import { baseURL } from "@/app/resources";
-import { home, about, person } from "@/app/resources/content";
-import { Projects } from "../components/work/Projects";
 
-// 🟢 Import TextRevealCard components
-import {
-  TextRevealCard,
-  TextRevealCardTitle,
-  TextRevealCardDescription,
-} from "@/components/ui/text-reveal-card";
+import { useRef, useState } from "react";
+import styles from "./page.module.css";
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [muted, setMuted] = useState(true);
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setMuted(videoRef.current.muted);
+    }
+  };
+
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
-      <script
-        type="application/ld+json"
-        suppressHydrationWarning
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebPage",
-            name: home.title,
-            description: home.description,
-            url: `https://${baseURL}`,
-            image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
-            publisher: {
-              "@type": "Person",
-              name: person.name,
-              image: {
-                "@type": "ImageObject",
-                url: `${baseURL}${person.avatar}`,
-              },
-            },
-          }),
-        }}
-      />
+    <section className={styles.heroSection}>
+      {/* Video wrapper */}
+      <div className={styles.videoWrapper}>
+        <video
+          ref={videoRef}
+          src="/videos/intro.mp4"
+          autoPlay
+          loop
+          playsInline
+          muted
+          controls={false}
+          disablePictureInPicture
+          className={styles.heroVideo}
+        />
 
-      <Column fillWidth paddingY="l" gap="m" horizontal="center">
-        <Column maxWidth="s" horizontal="center">
-          {/* 🔥 TextRevealCard replacing RevealFx + Heading */}
-                  <RevealFx translateY="4" fillWidth horizontal="center" paddingBottom="m">
-            <Text
-              wrap="balance"
-              align="center"
-              variant="display-strong-l"
-            >
-              {home.headline}
-            </Text>
-          </RevealFx>
+        {/* Mute / Unmute toggle button */}
+        <button
+          className={styles.muteBtn}
+          onClick={toggleMute}
+          aria-label={muted ? "Unmute video" : "Mute video"}
+          title={muted ? "Click to unmute" : "Click to mute"}
+        >
+          {muted ? (
+            /* Sound off icon */
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <line x1="23" y1="9" x2="17" y2="15" />
+              <line x1="17" y1="9" x2="23" y2="15" />
+            </svg>
+          ) : (
+            /* Sound on icon */
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+            </svg>
+          )}
+          <span className={styles.muteBtnLabel}>
+            {muted ? "Tap for sound" : "Mute"}
+          </span>
+        </button>
+      </div>
 
-          {/* Avatar */}
-          <RevealFx translateY="12" delay={0.4} horizontal="center" paddingBottom="l">
-            <Avatar src={person.avatar} size="xl" className="w-80 h-80"/>
-          </RevealFx>
-          <div className="flex items-center justify-center h-[20rem] w-full">
-            <TextRevealCard
-  text=""
-  revealText=""
-/>
-          </div>
-
-          {/* Subline */}
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="center" paddingBottom="m">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl" align="center">
-              {home.subline}
-            </Text>
-          </RevealFx>
-
-          {/* About Button */}
-          <RevealFx translateY="16" delay={0.6} horizontal="center">
-            <Button
-              id="about"
-              data-border="rounded"
-              href="/about"
-              variant="secondary"
-              size="m"
-              arrowIcon
-            >
-              <Flex gap="8" vertical="center">
-                {about.title}
-              </Flex>
-            </Button>
-          </RevealFx>
-        </Column>
-      </Column>
-    </Column>
+      {/* Bio text */}
+      <div className={styles.heroBio}>
+        Dedicated and results-driven Full Stack Developer with hands-on
+        experience in Java, Spring Boot, REST APIs, MySQL and frontend
+        technologies. Experienced in building secure full-stack applications
+        using JWT authentication, Spring Boot and React.js. Strong knowledge of
+        OOPs, JDBC, Hibernate, and Git with internship experience in full stack
+        and AI/ML development
+      </div>
+    </section>
   );
 }

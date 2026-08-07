@@ -1,184 +1,270 @@
 "use client";
 
-import React from "react";
-import {
-    Column,
-    Flex,
-    Heading,
-    Icon,
-    IconButton,
-    Text,
-    Button,
-    Input,
-    Textarea,
-} from "@/once-ui/components";
-import { contact, person } from "@/app/resources/content";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import { contact, social } from "@/app/resources/content";
+import styles from "./contact.module.css";
 
 export default function Contact() {
-    return (
-        <Column fillWidth horizontal="center" paddingY="xl" gap="40" maxWidth="m">
-            <Column gap="8" fillWidth>
-                <Heading as="h1" variant="display-strong-s" style={{ color: '#E11D48' }}>
-                    {contact.title}
-                </Heading>
-                <Text variant="body-default-l" onBackground="neutral-weak">
-                    {contact.description}
-                </Text>
-            </Column>
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-            <Flex fillWidth gap="24" mobileDirection="column">
-                {/* Left Column: Contact Info */}
-                <Flex
-                    flex={1}
-                    direction="column"
-                    padding="xl"
-                    radius="l"
-                    background="surface"
-                    border="neutral-alpha-weak"
-                    gap="32"
-                >
-                    <Column gap="8">
-                        <Text variant="heading-strong-m">Let's Start a Conversation</Text>
-                        <Text variant="body-default-m" onBackground="neutral-weak">
-                            I'm always open to discussing projects, opportunities, or tech. Feel free to reach out anytime.
-                        </Text>
-                    </Column>
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
-                    <Column gap="24">
-                        {/* Email */}
-                        <Flex vertical="center" gap="16">
-                            <Flex
-                                padding="12"
-                                radius="l"
-                                background="brand-alpha-weak"
-                                style={{ backgroundColor: 'rgba(225, 29, 72, 0.1)' }}
-                            >
-                                <Icon name="email" size="s" style={{ color: '#E11D48' }} />
-                            </Flex>
-                            <Column>
-                                <Text variant="body-default-s" onBackground="neutral-weak">Email</Text>
-                                <Text variant="body-default-m">{contact.info.email}</Text>
-                            </Column>
-                        </Flex>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("sending");
 
-                        {/* Phone */}
-                        <Flex vertical="center" gap="16">
-                            <Flex
-                                padding="12"
-                                radius="l"
-                                background="brand-alpha-weak"
-                                style={{ backgroundColor: 'rgba(225, 29, 72, 0.1)' }}
-                            >
-                                <Icon name="phone" size="s" style={{ color: '#E11D48' }} />
-                            </Flex>
-                            <Column>
-                                <Text variant="body-default-s" onBackground="neutral-weak">Phone</Text>
-                                <Text variant="body-default-m">{contact.info.phone}</Text>
-                            </Column>
-                        </Flex>
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
-                        {/* LinkedIn */}
-                        <Flex vertical="center" gap="16">
-                            <Flex
-                                padding="12"
-                                radius="l"
-                                background="brand-alpha-weak"
-                                style={{ backgroundColor: 'rgba(225, 29, 72, 0.1)' }}
-                            >
-                                <Icon name="linkedin" size="s" style={{ color: '#E11D48' }} />
-                            </Flex>
-                            <Column>
-                                <Text variant="body-default-s" onBackground="neutral-weak">LinkedIn</Text>
-                                <Text variant="body-default-m">{contact.info.linkedin}</Text>
-                            </Column>
-                        </Flex>
+    const templateParams = {
+      // Standard EmailJS variable names
+      name: formData.name,
+      email: formData.email,
+      // Alternative variable names (some templates use these)
+      from_name: formData.name,
+      from_email: formData.email,
+      reply_to: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      to_email: contact.info.email,
+    };
 
-                        {/* Location */}
-                        <Flex vertical="center" gap="16">
-                            <Flex
-                                padding="12"
-                                radius="l"
-                                background="brand-alpha-weak"
-                                style={{ backgroundColor: 'rgba(225, 29, 72, 0.1)' }}
-                            >
-                                <Icon name="location" size="s" style={{ color: '#E11D48' }} />
-                            </Flex>
-                            <Column>
-                                <Text variant="body-default-s" onBackground="neutral-weak">Location</Text>
-                                <Text variant="body-default-m">{contact.info.location}</Text>
-                            </Column>
-                        </Flex>
-                    </Column>
-                </Flex>
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+      setTimeout(() => setStatus("idle"), 5000);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 5000);
+    }
+  };
 
-                {/* Right Column: Contact Form */}
-                <Flex flex={1}>
-                    <form
-                        action="https://formsubmit.co/manja.r2505@gmail.com"
-                        method="POST"
-                        style={{ width: '100%' }}
-                    >
-                        <Flex
-                            direction="column"
-                            padding="xl"
-                            radius="l"
-                            background="surface"
-                            border="neutral-alpha-weak"
-                            gap="24"
-                            fillWidth
-                        >
-                            <Text variant="heading-strong-m">Send a Message</Text>
-                            
-                            {/* FormSubmit Configuration */}
-                            <input type="hidden" name="_subject" value="New Message from Portfolio" />
-                            <input type="hidden" name="_template" value="table" />
-                            <input type="hidden" name="_captcha" value="false" />
-                            <input type="hidden" name="_next" value="https://manjunath-portfolio.vercel.app/contact" />
+  const infoCards = [
+    {
+      icon: "📧",
+      label: "Email",
+      value: contact.info.email,
+      href: `mailto:${contact.info.email}`,
+    },
+    {
+      icon: "📱",
+      label: "Phone",
+      value: contact.info.phone,
+      href: `tel:${contact.info.phone.replace(/\s/g, "")}`,
+    },
+    {
+      icon: "📍",
+      label: "Location",
+      value: contact.info.location,
+      href: null,
+    },
+    {
+      icon: "💼",
+      label: "LinkedIn",
+      value: contact.info.linkedin,
+      href: `https://${contact.info.linkedin}`,
+    },
+  ];
 
-                            <Input
-                                id="name"
-                                name="name"
-                                label="Your Name"
-                                labelAsPlaceholder
-                                required
-                            />
+  const socialIcons: Record<string, string> = {
+    github: "🐙",
+    linkedin: "💼",
+    email: "✉️",
+  };
 
-                            <Input
-                                id="email"
-                                name="email"
-                                type="email"
-                                label="Your Email"
-                                labelAsPlaceholder
-                                required
-                            />
+  return (
+    <div className={styles.contactPage}>
+      {/* Header */}
+      <div className={styles.headerSection}>
+        <h1 className={styles.headerTitle}>{contact.title}</h1>
+        <p className={styles.headerDescription}>{contact.description}</p>
+      </div>
 
-                            <Textarea
-                                id="message"
-                                name="message"
-                                label="Your Message"
-                                labelAsPlaceholder
-                                required
-                            />
+      {/* Two-column grid */}
+      <div className={styles.contactGrid}>
+        {/* Left: Info Cards */}
+        <div className={styles.infoColumn}>
+          {infoCards.map((card) =>
+            card.href ? (
+              <a
+                key={card.label}
+                href={card.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${styles.infoCard} ${styles.infoCardClickable}`}
+              >
+                <div className={styles.infoCardIcon}>{card.icon}</div>
+                <div className={styles.infoCardContent}>
+                  <span className={styles.infoCardLabel}>{card.label}</span>
+                  <span className={styles.infoCardValue}>{card.value}</span>
+                </div>
+              </a>
+            ) : (
+              <div key={card.label} className={styles.infoCard}>
+                <div className={styles.infoCardIcon}>{card.icon}</div>
+                <div className={styles.infoCardContent}>
+                  <span className={styles.infoCardLabel}>{card.label}</span>
+                  <span className={styles.infoCardValue}>{card.value}</span>
+                </div>
+              </div>
+            )
+          )}
 
-                            <Button
-                                type="submit"
-                                variant="primary"
-                                size="l"
-                                fillWidth
-                                style={{
-                                    backgroundColor: "#E11D48",
-                                    color: "white",
-                                }}
-                            >
-                                <Flex gap="8" vertical="center">
-                                    <Icon name="send" size="s" />
-                                    <Text>Send Message</Text>
-                                </Flex>
-                            </Button>
-                        </Flex>
-                    </form>
-                </Flex>
-            </Flex>
-        </Column>
-    );
+          {/* Social Links */}
+          <div className={styles.socialSection}>
+            <div className={styles.socialLabel}>Connect with me</div>
+            <div className={styles.socialLinks}>
+              {social.map((item) =>
+                item.link ? (
+                  <a
+                    key={item.name}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.socialLink}
+                    title={item.name}
+                  >
+                    {socialIcons[item.icon] || "🔗"}
+                  </a>
+                ) : null
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Contact Form */}
+        <div className={styles.formColumn}>
+          <div className={styles.formCard}>
+            <h2 className={styles.formTitle}>Send me a message</h2>
+            <form onSubmit={handleSubmit}>
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel} htmlFor="contact-name">
+                    Name
+                  </label>
+                  <input
+                    id="contact-name"
+                    className={styles.formInput}
+                    type="text"
+                    name="name"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label className={styles.formLabel} htmlFor="contact-email">
+                    Email
+                  </label>
+                  <input
+                    id="contact-email"
+                    className={styles.formInput}
+                    type="email"
+                    name="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel} htmlFor="contact-subject">
+                  Subject
+                </label>
+                <input
+                  id="contact-subject"
+                  className={styles.formInput}
+                  type="text"
+                  name="subject"
+                  placeholder="What's this about?"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className={styles.formGroup}>
+                <label className={styles.formLabel} htmlFor="contact-message">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  className={styles.formTextarea}
+                  name="message"
+                  placeholder="Tell me about your project or idea..."
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending..." : "Send Message ✨"}
+              </button>
+
+              {status === "success" && (
+                <div className={styles.successMessage}>
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
+              {status === "error" && (
+                <div className={styles.errorMessage}>
+                  ❌ Something went wrong. Please try again.
+                </div>
+              )}
+            </form>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className={styles.bottomCTA}>
+        <p className={styles.bottomCTAText}>
+          Prefer a quick chat? Feel free to reach out on{" "}
+          <a
+            href={`https://${contact.info.linkedin}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.bottomCTAHighlight}
+            style={{ textDecoration: "none" }}
+          >
+            LinkedIn
+          </a>{" "}
+          or drop an email at{" "}
+          <a
+            href={`mailto:${contact.info.email}`}
+            className={styles.bottomCTAHighlight}
+            style={{ textDecoration: "none" }}
+          >
+            {contact.info.email}
+          </a>
+        </p>
+      </div>
+    </div>
+  );
 }

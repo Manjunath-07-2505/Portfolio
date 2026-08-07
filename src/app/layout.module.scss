@@ -1,0 +1,15 @@
+/* src/app/layout.module.scss */
+
+/* Ensure the root layout fills the viewport */
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add a subtle background gradient */
+body {
+  background: linear-gradient(135deg, #111 0%, #222 100%);
+  color: #fff;
+  font-smoothing: antialiased;
+}

@@ -1,0 +1,142 @@
+// src/components/HeroVideo.module.scss
+
+/* Hero section container */
+.heroSection {
+  position: relative;
+  width: 90%;
+  max-width: 942px;
+  aspect-ratio: 942 / 529;
+  height: auto; /* let aspect ratio control height */
+  margin: 2rem auto; /* center horizontally and add vertical space */
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0a0a0a; /* fallback dark */
+}
+
+/* Background video */
+.videoBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5); /* 50% opacity */
+  z-index: -1;
+}
+
+/* Main content wrapper */
+.content {
+  position: relative;
+  text-align: center;
+  color: #f5f5f5;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+/* Profile section with glassmorphism */
+.profileWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.profileImage {
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.typing {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: #d1d5db;
+  font-family: "Courier New", Courier, monospace;
+  animation: blink-caret 0.8s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #fff }
+}
+
+.actions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.resumeBtn {
+  background: #e11d48; /* crimson */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.resumeBtn:hover {
+  background: #c81c40;
+  transform: translateY(-2px);
+}
+
+.social a {
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.2s;
+}
+
+.social a:hover {
+  color: #e11d48;
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroSection {
+    width: 95%;
+    margin-top: 1rem;
+    height: auto;
+  }
+  .profileWrapper {
+    padding: 1.5rem;
+  }
+  .name {
+    font-size: 2rem;
+  }
+  .title {
+    font-size: 1.25rem;
+  }
+}

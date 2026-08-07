@@ -266,6 +266,11 @@ const gallery = {
   // Images from https://pexels.com
   images: [
     {
+      src: "/images/gallery/kodnest-certificate.png",
+      alt: "KodNest Full Stack Development Certificate",
+      orientation: "horizontal",
+    },
+    {
       src: "/images/gallery/i2.jpeg",
       alt: "image",
       orientation: "horizontal",

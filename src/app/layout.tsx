@@ -1,5 +1,7 @@
 import "@/once-ui/styles/index.scss";
 import "@/once-ui/tokens/index.scss";
+import "./layout.css";
+import "./globals.css";
 
 import classNames from "classnames";
 
@@ -37,6 +39,14 @@ export async function generateMetadata() {
         "max-snippet": -1,
       },
     },
+  };
+}
+
+export function generateViewport() {
+  return {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
   };
 }
 
@@ -92,7 +102,13 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       )}
     >
       <ToastProvider>
-        <Column style={{ minHeight: "100vh" }} as="body" fillWidth margin="0" padding="0">
+        <Column
+          style={{ minHeight: "100vh" }}
+          as="body"
+          fillWidth
+          margin="0"
+          padding="0"
+        >
           <Background
             mask={{
               cursor: effects.mask.cursor,
@@ -147,9 +163,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
             zIndex={0}
             fillWidth
             paddingY="l"
-            paddingX="l"
+            paddingX="m"
             horizontal="center"
             flex={1}
+            style={{ paddingLeft: 'clamp(0.75rem, 3vw, 2rem)', paddingRight: 'clamp(0.75rem, 3vw, 2rem)' }}
           >
             <Flex horizontal="center" fillWidth minHeight="0">
               <RouteGuard>{children}</RouteGuard>

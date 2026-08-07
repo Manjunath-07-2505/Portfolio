@@ -1,0 +1,17 @@
+/* Global layout styles */
+html,
+body,
+#__next {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000; /* dark background */
+  color: #fff; /* default text color */
+}
+
+/* Ensure the root flex container fills the page */
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
