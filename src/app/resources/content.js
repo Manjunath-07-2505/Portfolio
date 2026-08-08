@@ -336,4 +336,4 @@ const contact = {
   },
 };
 
-export { person, social, newsletter, home, about, blog, work, gallery, contact };
+export { person, social, newsletter, home, about, blog, work, gallery, contact };

@@ -1,6 +1,6 @@
 // src/components/TechFloat.tsx
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { FaJava, FaReact, FaNodeJs, FaDatabase, FaAws } from "react-icons/fa";
 
 const icons = [
@@ -11,11 +11,10 @@ const icons = [
   { Component: FaAws, label: "AWS" },
 ];
 
-const floatingVariants = {
+const floatingVariants: Variants = {
   animate: {
     y: [0, -20, 0],
     opacity: [0.6, 1, 0.6],
-    transition: { repeat: Infinity, duration: 4, ease: "easeInOut" },
   },
 };
 
@@ -35,6 +34,7 @@ const TechFloat: React.FC = () => {
           }}
           variants={floatingVariants}
           animate="animate"
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
         >
           <icon.Component />
         </motion.div>
